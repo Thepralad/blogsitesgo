@@ -2,27 +2,29 @@ package handlers
 
 import(
 	"net/http"
-	"github.com/Thepralad/blogsites/models"
+	"github.com/thepralad/blogsitesgo/models"
 	"fmt"
 )
 
-func register(res http.ResponseWriter, req *http.Request){
+//Handler for the /register route.
+func Register(res http.ResponseWriter, req *http.Request){
 	err := req.ParseForm()
 	if err != nil{
 		fmt.Println(err)
 	}
-	updateDB(req.FormValue("email"), req.FormValue("password"))
+	models.UpdateDB(req.FormValue("email"), req.FormValue("password"))
 	fmt.Fprintf(res, "EMAIL: %v, PASSWORD: %v\n", req.FormValue("email"), req.FormValue("password"))
 }
 
-func login(res http.ResponseWriter, req *http.Request){
+//Handler for the /login route
+func Login(res http.ResponseWriter, req *http.Request){
 	err := req.ParseForm()
 	if err != nil{
 		fmt.Println(err)
 	}
 	enteredEmail := req.FormValue("email");
 	
-	_, password, _ := retrieveRow(enteredEmail)
+	_, password, _ := models.RetrieveRow(enteredEmail)
 	if password != req.FormValue("password"){
 		fmt.Fprintf(res, "worng password")	
 	}else{
