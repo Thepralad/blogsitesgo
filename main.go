@@ -4,37 +4,19 @@ package main
 
 import (
 	"net/http"
-	"fmt"
+	"github.com/thepralad/blogsitesgo/handlers"
 )
 
 func main(){
+	//Create a new mux for routing
 	mux := http.NewServeMux();
+
+	//Managing all routes
 	mux.Handle("/", http.FileServer(http.Dir("./templates")))
-	mux.HandleFunc("/register", register)
-	mux.HandleFunc("/login", login)
+	mux.HandleFunc("/register", handlers.Register)
+	mux.HandleFunc("/login", handlers.Login)
+
+	//setting up a server at :8080
 	http.ListenAndServe(":8080", mux)
 }
 
-func register(res http.ResponseWriter, req *http.Request){
-	err := req.ParseForm()
-	if err != nil{
-		fmt.Println(err)
-	}
-	updateDB(req.FormValue("email"), req.FormValue("password"))
-	fmt.Fprintf(res, "EMAIL: %v, PASSWORD: %v\n", req.FormValue("email"), req.FormValue("password"))
-}
-
-func login(res http.ResponseWriter, req *http.Request){
-	err := req.ParseForm()
-	if err != nil{
-		fmt.Println(err)
-	}
-	enteredEmail := req.FormValue("email");
-	
-	_, password, _ := retrieveRow(enteredEmail)
-	if password != req.FormValue("password"){
-		fmt.Fprintf(res, "worng password")	
-	}else{
-		fmt.Fprintf(res, "successfully logged in! EMAIL: %v, PASSWORD: %v\n", req.FormValue("email"), req.FormValue("password"))	
-	}
-}
