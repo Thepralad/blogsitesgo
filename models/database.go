@@ -6,7 +6,7 @@ import(
 	_"github.com/go-sql-driver/mysql"
 )
 
-
+// Updates the 'user' table in the database - inserts a row with values(email, password)
 func UpdateDB(email string, password string) error{
 	db, err := sql.Open("mysql", "root:25802580@tcp(127.0.0.1:3306)/snet")	
 	if err != nil{
@@ -28,6 +28,7 @@ func UpdateDB(email string, password string) error{
 	return nil
 }
 
+// Retrieves a row - gets a row by using the email - returns email, password, error
 func RetrieveRow(email string) (string, string, error){	
 	db, err := sql.Open("mysql", "root:25802580@tcp(127.0.0.1:3306)/snet")	
 	if err != nil{
