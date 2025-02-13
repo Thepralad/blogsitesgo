@@ -1,19 +1,10 @@
-package main
+package handlers
 
-//need access to database to read and write data
-
-import (
+import(
 	"net/http"
+	"github.com/Thepralad/blogsites/models"
 	"fmt"
 )
-
-func main(){
-	mux := http.NewServeMux();
-	mux.Handle("/", http.FileServer(http.Dir("./templates")))
-	mux.HandleFunc("/register", register)
-	mux.HandleFunc("/login", login)
-	http.ListenAndServe(":8080", mux)
-}
 
 func register(res http.ResponseWriter, req *http.Request){
 	err := req.ParseForm()
