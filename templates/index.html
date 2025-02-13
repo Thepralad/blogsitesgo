@@ -1,179 +1,39 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sNet - Salesian Network</title>
+    <title>blogity</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #E9EBEE;
-        }
-
-        header {
-            background-color: #3B5998;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            position: relative;
-        }
-
-        header h1 {
-            font-size: 36px;
-            margin: 0;
-        }
-
-        nav {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-        }
-
-        nav a {
-            color: white;
-            margin-left: 15px;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            margin: 20px;
-            gap: 20px;
-        }
-
-        .login-form {
-            background-color: white;
-            border: 2px dashed #223662;
-            width: 260px;
-            padding: 20px;
-        }
-
-        .login-form label, .login-form input {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        .login-form input[type="text"], .login-form input[type="password"] {
-            padding: 8px;
-            border: 1px solid #ccc;
-            width: 200px;
-        }
-
-        .login-form .register {
-            padding: 10px;
-            background-color: #3B5998;
-            color: white;
-            border: #4e4e4e groove 2px;
-            cursor: pointer;
-        }
-
-        .content {
-            background-color: white;
-            border: 1px solid #3B5998;
-            padding: 20px;
-            max-width: 600px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 12px;
-        }
-
-        footer a {
-            margin: 0 5px;
-            text-decoration: none;
-            color: #3B5998;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .login-form, .content {
-                width: 90%;
-            }
-            .login-form input[type="text"], .login-form input[type="password"] {
-            padding: 8px;
-            border: 1px solid #ccc;
-            width: 360px;
-            }
-
-            header {
-            background-color: #3B5998;
-            color: white;
-            padding: 10px;
-            display: flex;
-            
-            }
+        label{
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1><strong>[ sNet ]</strong></h1>
-        <nav>
-            <a href="#">login</a>
-            <a href="#">register</a>
-            <a href="#">about</a>
-        </nav>
-    </header>
-
+    <h3>Register</h3>
         <div class="container">
             <form class="login-form" action="/register" method="post">
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email" placeholder="Enter your email" required>
-
+                <br>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
-
+                <br>
                 <input type="submit" class="register" value="Register">
             </form>
         </div>
+        <br>
+        <h3>Login</h3>
         <div class="container">
             <form class="login-form" action="/login" method="get">
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email" placeholder="Enter your email" required>
-
+                <br>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
-
+                <br>
                 <input type="submit" class="register" value="login">
             </form>
         </div>
-
-        <div class="content">
-            <h2>Welcome to sNet</h2>
-            <p>sNet is an online directory that connects Salesian students through social networks.</p>
-            <p>We have opened up sNet for popular consumption at <strong>Salesian College</strong>.</p>
-
-            <ul>
-                <li>Search for people at your colelge</li>
-                <li>Find out who are in your departments</li>
-                <li>Look up your friends' friends</li>
-                <li>See a visualization of your social network</li>
-            </ul>
-
-            <p>To get started, click to register. If you have already registered, you can log in using your <strong>@salesiancollege.net</strong> email ID.</p>
-        </div>
-    </div>
-
-    <footer>
-        <a href="#">about</a>
-        <a href="#">contact</a>
-        <a href="#">faq</a>
-        <a href="#">terms</a>
-        <a href="#">privacy</a>
-        <p>A Salesian College production</p>
-    </footer>
 </body>
 </html>
 
